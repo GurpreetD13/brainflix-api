@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/GurpreetD13/gurpreet-dhaliwal-brainflix-api/issues"
   },
-  "homepage": "https://github.com/GurpreetD13/gurpreet-dhaliwal-brainflix-api#readme"
+  "homepage": "https://github.com/GurpreetD13/gurpreet-dhaliwal-brainflix-api#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
