@@ -18,5 +18,8 @@
   "homepage": "https://github.com/GurpreetD13/gurpreet-dhaliwal-brainflix-api#readme",
   "dependencies": {
     "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
