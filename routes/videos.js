@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
-const { v4: uuid } = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 
 // '/videos' route 
 
@@ -11,13 +11,17 @@ const getVideos = () => {
     return JSON.parse(videos);
 };
 
-// Function to save a video which will be used in handling video POST requests below
+// Function to save videos.json data which will be used in handling video POST requests later
+// const saveVideos = (updatedVideos) => {
+//     fs.writeFileSync('./data/videos.json', JSON.stringify(updatedVideos))
+// };
+
 
 // '/videos/' route
 router.route('/')
     // GET All videos by mapping into a condensed format
     .get((req, res) => {
-        
+
         const formattedVideos = getVideos()
             .map(video => {
                 return {
@@ -31,7 +35,26 @@ router.route('/')
     })
 
     .post((req, res) => {
+        const newVideo = {
+            id: uuidv4(),
+            "title": req.body.title,
+            "channel": "Channel",
+            "image": "./",
+            "description": req.body.description,
+            "views": 0,
+            "likes": 0,
+            "duration": "4:20",
+            "video": "https://project-2-api.herokuapp.com/stream",
+            "timestamp": Date.now(),
+            "comments": [],
+        }
+        // add/push newVideo to All videos data array and save updatedVideos data array
+        // let updatedVideos = getVideos();
+        // updatedVideos.push(newVideo);
 
+        // saveVideos(updatedVideos);
+
+        res.status(201).json(newVideo);
     });
 
 

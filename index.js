@@ -8,7 +8,7 @@ const cors = require('cors');
 
 
 // will need the following bodyParser to access/parse request.body of POST requests
-// app.use(express.json());
+app.use(express.json());
 
 
 
