@@ -12,9 +12,9 @@ const getVideos = () => {
 };
 
 // Function to save videos.json data which will be used in handling video POST requests later
-// const saveVideos = (updatedVideos) => {
-//     fs.writeFileSync('./data/videos.json', JSON.stringify(updatedVideos))
-// };
+const saveVideos = (updatedVideos) => {
+    fs.writeFileSync('./data/videos.json', JSON.stringify(updatedVideos))
+};
 
 
 // '/videos/' route
@@ -39,7 +39,7 @@ router.route('/')
             id: uuidv4(),
             "title": req.body.title,
             "channel": "Channel",
-            "image": "./",
+            "image": "./images/image3.jpeg",
             "description": req.body.description,
             "views": 0,
             "likes": 0,
@@ -49,14 +49,13 @@ router.route('/')
             "comments": [],
         }
         // add/push newVideo to All videos data array and save updatedVideos data array
-        // let updatedVideos = getVideos();
-        // updatedVideos.push(newVideo);
+        let updatedVideos = getVideos();
+        updatedVideos.push(newVideo);
 
         // saveVideos(updatedVideos);
 
         res.status(201).json(newVideo);
     });
-
 
 
 // handle GET Single requested videoDetails object where dynamic URL/route = videoId using req.params.id to find video if exists
