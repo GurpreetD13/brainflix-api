@@ -36,10 +36,10 @@ router.route('/')
 
     .post((req, res) => {
         const newVideo = {
-            id: uuidv4(),
+            "id": uuidv4(),
             "title": req.body.title,
-            "channel": "Channel",
-            "image": "./images/image3.jpeg",
+            "channel": "Anonymous",
+            "image": req.body.image,
             "description": req.body.description,
             "views": 0,
             "likes": 0,
@@ -52,7 +52,7 @@ router.route('/')
         let updatedVideos = getVideos();
         updatedVideos.push(newVideo);
 
-        // saveVideos(updatedVideos);
+        saveVideos(updatedVideos);
 
         res.status(201).json(newVideo);
     });

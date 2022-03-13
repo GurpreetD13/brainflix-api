@@ -7,11 +7,11 @@ const cors = require('cors');
 // will need the following bodyParser to access/parse request.body of POST requests
 app.use(express.json());
 
-// will need to allow cross origin resource sharing
-// app.use(cors());
-
-// will need to publically serve static assets/image from server which
+// will need to publicly serve static assets/image from server
 app.use(express.static('public'))
+
+// will need to allow cross origin resource sharing
+app.use(cors());
 
 
 
