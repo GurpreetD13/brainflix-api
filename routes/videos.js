@@ -11,14 +11,28 @@ const getVideos = () => {
     return JSON.parse(videos);
 };
 
+// Function to save a video which will be used in handling video POST requests below
 
-// app.route('/')
+// '/videos/' route
+router.route('/')
+    // GET All videos by mapping into a condensed format
+    .get((req, res) => {
+        
+        const formattedVideos = getVideos()
+            .map(video => {
+                return {
+                    "id": video.id,
+                    "title": video.title,
+                    "channel": video.channel,
+                    "image": video.image,
+                }
+            });
+        res.status(200).json(formattedVideos);
+    })
 
+    .post((req, res) => {
 
-
-
-
-
+    });
 
 
 
