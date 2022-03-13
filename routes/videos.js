@@ -38,13 +38,13 @@ router.route('/')
         const newVideo = {
             "id": uuidv4(),
             "title": req.body.title,
-            "channel": "Anonymous",
+            "channel": req.body.channel,
             "image": req.body.image,
             "description": req.body.description,
             "views": 0,
             "likes": 0,
-            "duration": "4:20",
-            "video": "https://project-2-api.herokuapp.com/stream",
+            "duration": req.body.duration,
+            "video": req.body.video,
             "timestamp": Date.now(),
             "comments": [],
         }
